@@ -4,6 +4,8 @@ const path = require("path");
 const cors = require("cors");
 const AWS = require("aws-sdk");
 const { v4: uuidv4 } = require("uuid");
+require("dotenv").config();
+
 
 const app = express();
 
@@ -14,13 +16,13 @@ app.use(cors());
 
 // 🔹 Configure AWS (use your own keys & region)
 AWS.config.update({
-  accessKeyId: "AKIA6A6KCUVZEETX3SF4",
-  secretAccessKey: "XYFTUIb+zHi9HAemm50/b+tHaOme2aI8kKjx0Uy9",
-  region: "ap-south-1" // or your bucket region
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: process.env.AWS_REGION
 });
 
 const s3 = new AWS.S3();
-const BUCKET_NAME = "omkarbuket"; // change to your bucket name
+const BUCKET_NAME = process.env.AWS_BUCKET_NAME; // change to your bucket name
 
 // Handle POST request from the form
 app.post("/submit", async (req, res) => {
