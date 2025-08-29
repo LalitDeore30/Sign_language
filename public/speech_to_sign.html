@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text to Sign Language</title>
+
+    <!-- Boxicons CDN -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Style/speech.css" />
+    <link rel="stylesheet" href="Style/styles.css" />
+  </head>
+  <body>
+    <div class="header">
+      <a href="/" class="logo"><img src="images/community.png" /></a>
+
+      <!-- Burger menu -->
+      <div class="burger-menu" onclick="toggleNavbar()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+
+      <!-- Navigation links -->
+      <nav class="navbar text_speech">
+        <a href="/" style="--i: 1" class="active">Home</a>
+        <a href="/learn" style="--i: 2">Learn</a>
+        <a href="/game" style="--i: 3">Game</a>
+        <a href="/speech_to_sign" style="--i: 4">Speech To Sign</a>
+        <a href="/test" style="--i: 5">Test</a>
+        <a href="/contact" style="--i: 6">Contact</a>
+      </nav>
+    </div>
+    <section id="speech">
+      <div class="content">
+        <h1 class="glass-heading">Convert Text to Sign Language</h1>
+
+        <!-- Input Section -->
+        <div class="input-container">
+          <input type="text" id="textInput" placeholder="Enter text here..." />
+          <button id="micButton" onclick="startSpeechRecognition()">
+            <i class="bx bxs-microphone"></i>
+          </button>
+        </div>
+
+        <button class="convert" onclick="convertToSignLanguage()">
+          Convert to Sign Language
+        </button>
+
+        <!-- Container for one-by-one display -->
+        <div id="timeLapseContainer">
+          <div id="signContainer"></div>
+        </div>
+
+        <!-- Button to show/hide full word display -->
+        <button id="showFullWordBtn" onclick="toggleFullWordDisplay()">
+          Show Full Sentence
+        </button>
+
+        <!-- Container for full word display -->
+        <div id="fullDisplayContainer">
+          <h2>Full Sentence Display</h2>
+          <div id="fullSignOutput"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="footer">
+      <footer>
+        <div id="icon">
+          <div class="ic1">
+            <a href="https://www.linkedin.com/in/lalit-deore-73b06425a/"></a>
+            <i class="bx bxl-linkedin"></i>
+          </div>
+          <div class="ic1">
+            <a href=""></a>
+            <i class="bx bxl-facebook"></i>
+          </div>
+
+          <div class="ic1">
+            <a href=""></a>
+            <i class="bx bxl-whatsapp"></i>
+          </div>
+        </div>
+        <p>Copyright © 2024 Guess The Sign.com All writes reserved</p>
+      </footer>
+    </section>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="Javascript/script2.js"></script>
+    <script>
+      function startSpeechRecognition() {
+        // Check if browser supports the Web Speech API
+        if (!("webkitSpeechRecognition" in window)) {
+          alert("Your browser doesn't support speech recognition.");
+          return;
+        }
+
+        // Initialize speech recognition
+        const recognition = new webkitSpeechRecognition();
+        recognition.lang = "en-US"; // Set language
+        recognition.interimResults = false; // Get final results only
+        recognition.maxAlternatives = 1; // Only one alternative
+
+        recognition.start();
+
+        recognition.onresult = function (event) {
+          const transcript = event.results[0][0].transcript; // Get recognized text
+          document.getElementById("textInput").value = transcript; // Display in the input field
+        };
+
+        recognition.onerror = function (event) {
+          alert("Error occurred in recognition: " + event.error);
+        };
+
+        recognition.onend = function () {
+          console.log("Speech recognition service disconnected");
+        };
+      }
+    </script>
+    <script>
+      function toggleFullWordDisplay() {
+        let fullDisplayContainer = document.getElementById(
+          "fullDisplayContainer"
+        );
+        let showFullWordBtn = document.getElementById("showFullWordBtn");
+
+        if (
+          fullDisplayContainer.style.display === "none" ||
+          fullDisplayContainer.style.display === ""
+        ) {
+          // Show the full word display
+          fullDisplayContainer.style.display = "block";
+          showFullWordBtn.textContent = "Hide Full Sentence";
+        } else {
+          // Hide the full word display
+          fullDisplayContainer.style.display = "none";
+          showFullWordBtn.textContent = "Show Full Sentence";
+        }
+      }
+    </script>
+    <script>
+      const burgerMenu = document.querySelector(".burger-menu");
+      const header = document.querySelector(".header");
+
+      burgerMenu.addEventListener("click", () => {
+        header.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

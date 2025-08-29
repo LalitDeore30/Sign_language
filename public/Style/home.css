@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    padding: 20px 10%;
+    background-color: #3AB0FF; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+   
+}
+
+.logo {
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+}
+.logo img{
+    height: 40px;
+    width: 40px;
+}
+
+.wave {
+    display: inline-block;
+    animation: waveAnimation 2s infinite;
+    transform-origin: 70% 70%;
+  }
+
+.navbar {
+    display: flex; 
+    align-items: center; 
+}
+
+.navbar a {
+   
+    font-size: 18px;
+    color: #f4eded;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px; 
+    transition: .3s;
+}
+
+.navbar a:hover {
+    padding: 0.5rem;
+    background-color: #f9f7f7;
+    color: #0E2954;
+    border-radius: 10px;
+}
+
+
+.burger-menu {
+    display: none;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.line {
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+
+.header.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.header.active .line:nth-child(1) {
+    transform: translateY(8px) rotate(-45deg);
+}
+
+.header.active .line:nth-child(3) {
+    transform: translateY(-8px) rotate(45deg);
+}
+
+.wave {
+    display: inline-block;
+    animation: waveAnimation 2s infinite;
+    transform-origin: 70% 70%;
+  }
+
+.home {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 10% 0;
+}
+
+.home-img {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-start; 
+    
+}
+
+.home-img img {
+    max-width: 425px;
+    margin-right: 0; 
+    opacity: 0;
+    font-size: 5rem;
+    animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+    animation-delay: 2s, 3s;
+    box-shadow: 0 0 30px #28ABB9;
+    border-radius: 50%;
+}
+
+.home-content {
+    flex: 1; 
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.home-content h3 {
+    font-size: 3rem;
+    font-weight: 900;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+.home-content h3:nth-of-type(2) {
+    animation: slideTop 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+.home-content h3 span {
+    color: #3498db;
+}
+
+.home-content p {
+    font-size: 1rem;
+    font-weight:bolder;
+}
+.home2 {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 10% 0;
+}
+
+.home2-img {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-start; 
+    padding-bottom: 80px;
+}
+
+
+.home2-content {
+    flex: 1; 
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.home2-content h1 {
+    font-size: 3rem; 
+    color: #333; 
+    margin-bottom: 20px; 
+}
+
+
+.home2-content ul {
+    padding: 0; 
+    margin-left: 20px;
+}
+
+.home2-content ul li {
+    font-size: 1rem; 
+    color: #555; 
+    margin-bottom: 15px; 
+    position: relative; 
+    opacity: 0; 
+    transform: translateX(-50px); 
+    animation: slideIn 0.6s ease forwards; 
+    animation-delay: calc(var(--i) * 0.3s); 
+    font-weight: bolder;
+}
+
+#footer {
+    background-color: #3AB0FF;
+    color: #333;
+    justify-content: center;
+    text-align: center;
+    width: auto;
+    font-size: 20px;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+  
+#footer p {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+#icon {
+  display: flex;
+  justify-content: center;
+}
+.ic1 {
+  margin: 6px;
+  color: #fff;
+  padding: 0 0.7rem;
+  cursor: pointer;
+}
+
+
+/* KEYFRAMES ANIMATION */
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-24px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideBottom {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes waveAnimation {
+    0%, 100% {
+      transform: rotate(0);
+    }
+    20% {
+      transform: rotate(-20deg);
+    }
+    40% {
+      transform: rotate(20deg);
+    }
+    60% {
+      transform: rotate(-20deg);
+    }
+    80% {
+      transform: rotate(20deg);
+    }
+  }
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        display: block;
+        text-align: center; 
+    }
+
+    .navbar {
+        display: none; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 100%; 
+        right: 0;
+        background-color: #3AB0FF; 
+        width: 100%; 
+        padding: 10px 0; 
+        text-align: center; 
+    }
+
+    
+   
+
+    .header.active .navbar {
+        display: flex; 
+    }
+
+    .burger-menu {
+        display: block; 
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+    
+    #userInput {
+        max-width: 100%;
+    }
+
+    .home {
+        display: flex; 
+        flex-direction: column; 
+        height: auto;
+        padding: 20px 5%; 
+        align-items: center; 
+        justify-content: center; 
+    }
+
+    .home-content,
+    .home-img {
+        text-align: center; 
+        margin-bottom: 20px; 
+    }
+
+    .home-img {
+        display: flex; 
+        justify-content: center; 
+    }
+
+    .home-img img {
+        max-width: 300px; 
+        margin: 0; 
+        opacity: 1; 
+        font-size: 5rem;
+        animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+        animation-delay: 2s, 3s;
+        box-shadow: 0 0 30px #28ABB9;
+        border-radius: 50%;
+        margin-top: 10rem; 
+    }
+
+    .home-content h3 {
+        font-size: 20px; 
+        font-weight: 700;
+        opacity: 1; 
+        animation: slideBottom 1s ease forwards;
+        animation-delay: 0.7s;
+    }
+
+    .home-content h3:nth-of-type(2) {
+        margin-bottom: 30px;
+        animation: slideTop 1s ease forwards;
+        animation-delay: 0.7s;
+    }
+
+    .home-content h3 span {
+        color: #3498db;
+    }
+
+    .home-content p {
+        font-size: 16px; 
+        margin-left: 15px;
+        text-align: start;
+    }
+
+    .home2 {
+        display: flex; 
+        flex-direction: column-reverse; 
+        height: auto;
+        padding: 20px 5%; 
+        align-items: center; 
+        justify-content: center; 
+    }
+
+    .home2-content,
+    .home2-img {
+        text-align: center; 
+        margin-bottom: 20px; 
+    }
+
+    .home2-img {
+        display: flex; 
+        justify-content: center; 
+        padding-bottom: 0px;
+    }
+    .home2-content h1 {
+        font-size: 20px; 
+        color: #333; 
+        margin-bottom: 20px; 
+    }
+    
+    
+    .home2-content ul {
+        text-align: start;
+        padding: 0; 
+        margin-left: 20px;
+    }
+    
+    .home2-content ul li {
+        font-size: 16px; 
+        color: #555; 
+        margin-bottom: 15px; 
+        position: relative; 
+        opacity: 0; 
+        transform: translateX(-50px); 
+        animation: slideIn 0.6s ease forwards; 
+        animation-delay: calc(var(--i) * 0.3s); 
+    }
+    
+
+    
+}

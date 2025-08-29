@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Language Quiz Game</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Style/learn.css" />
+  </head>
+  <body>
+    <section></section>
+    <div class="box">
+      <div class="header">
+        <a href="/" class="logo"><img src="images/community.png" /></a>
+
+        <!-- Burger menu -->
+        <div class="burger-menu" onclick="toggleNavbar()">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+
+        <!-- Navigation links -->
+        <nav class="navbar">
+          <a href="/" style="--i: 1" class="active">Home</a>
+          <a href="/learn" style="--i: 2">Learn</a>
+          <a href="/game" style="--i: 3">Game</a>
+          <a href="/speech_to_sign" style="--i: 4">Speech To Sign</a>
+          <a href="/test" style="--i: 5">Test</a>
+          <a href="/contact" style="--i: 6">Contact</a>
+        </nav>
+      </div>
+      <h1 id="Learn" class="glass-heading">Let's Learn</h1>
+      <div class="card-box"></div>
+    </div>
+    <section id="footer">
+      <footer>
+        <div id="icon">
+          <div class="ic1">
+            <a href="https://www.linkedin.com/in/lalit-deore-73b06425a/"></a>
+            <i class="bx bxl-linkedin"></i>
+          </div>
+          <div class="ic1">
+            <a href=""></a>
+            <i class="bx bxl-facebook"></i>
+          </div>
+
+          <div class="ic1">
+            <a href=""></a>
+            <i class="bx bxl-whatsapp"></i>
+          </div>
+        </div>
+        <p>Copyright © 2024 Guess The Sign.com All writes reserved</p>
+      </footer>
+    </section>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="Javascript/script3.js"></script>
+    <script>
+      const burgerMenu = document.querySelector(".burger-menu");
+      const header = document.querySelector(".header");
+
+      burgerMenu.addEventListener("click", () => {
+        header.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

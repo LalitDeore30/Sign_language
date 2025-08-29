@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Language Quiz Game</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Style/styles.css" />
+  </head>
+  <body>
+    <div class="header">
+      <a href="/" class="logo"><img src="images/community.png" /></a>
+
+      <!-- Burger menu -->
+      <div class="burger-menu" onclick="toggleNavbar()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+
+      <!-- Navigation links -->
+      <nav class="navbar">
+        <a href="/" style="--i: 1" class="active">Home</a>
+        <a href="/learn" style="--i: 2">Learn</a>
+        <a href="/game" style="--i: 3">Game</a>
+        <a href="/speech_to_sign" style="--i: 4">Speech To Sign</a>
+        <a href="/test" style="--i: 5">Test</a>
+        <a href="/contact" style="--i: 6">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Main content starts here -->
+    <section id="test">
+      <div class="container">
+        <h1 class="glass-heading">Guess The Sign!</h1>
+        <div id="score-container">Score: <span id="score">0</span>/10</div>
+
+        <div class="quiz-box">
+          <div id="question-number">
+            Question <span id="current-question">1</span> of 10
+          </div>
+          <img
+            id="signImage"
+            class="sign-image"
+            src=""
+            alt="Sign Language Image"
+          />
+
+          <div class="input-container">
+            <input
+              type="text"
+              id="userInput"
+              placeholder="Type here..."
+              autofocus
+            />
+            <button id="submitAnswer" onclick="submitAnswer()">Submit</button>
+          </div>
+        </div>
+
+        <div id="message"></div>
+
+        <div id="end-message"></div>
+
+        <div class="keypad">
+          <div class="key-row">
+            <button onclick="enterLetter('A')">A</button>
+            <button onclick="enterLetter('B')">B</button>
+            <button onclick="enterLetter('C')">C</button>
+            <button onclick="enterLetter('D')">D</button>
+            <button onclick="enterLetter('E')">E</button>
+            <button onclick="enterLetter('F')">F</button>
+            <button onclick="enterLetter('G')">G</button>
+          </div>
+          <div class="key-row">
+            <button onclick="enterLetter('H')">H</button>
+            <button onclick="enterLetter('I')">I</button>
+            <button onclick="enterLetter('J')">J</button>
+            <button onclick="enterLetter('K')">K</button>
+            <button onclick="enterLetter('L')">L</button>
+            <button onclick="enterLetter('M')">M</button>
+            <button onclick="enterLetter('N')">N</button>
+          </div>
+          <div class="key-row">
+            <button onclick="enterLetter('O')">O</button>
+            <button onclick="enterLetter('P')">P</button>
+            <button onclick="enterLetter('Q')">Q</button>
+            <button onclick="enterLetter('R')">R</button>
+            <button onclick="enterLetter('S')">S</button>
+            <button onclick="enterLetter('T')">T</button>
+            <button onclick="enterLetter('U')">U</button>
+          </div>
+          <div class="key-row">
+            <button onclick="enterLetter('V')">V</button>
+            <button onclick="enterLetter('W')">W</button>
+            <button onclick="enterLetter('X')">X</button>
+            <button onclick="enterLetter('Y')">Y</button>
+            <button onclick="enterLetter('Z')">Z</button>
+          </div>
+          <div class="key-row">
+            <button
+              style="width: 200px"
+              class="space-button"
+              onclick="enterLetter(' ')"
+            >
+              Space
+            </button>
+            <button
+              style="width: 80px"
+              class="delete-button"
+              onclick="deleteLetter()"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="footer" class="test">
+      <footer>
+        <div id="icon">
+          <div class="ic1">
+            <a href="https://www.linkedin.com/in/lalit-deore-73b06425a/"></a>
+            <i class="bx bxl-linkedin"></i>
+          </div>
+          <div class="ic1">
+            <a href=""></a>
+            <i class="bx bxl-facebook"></i>
+          </div>
+
+          <div class="ic1">
+            <a href=""></a>
+            <i class="bx bxl-whatsapp"></i>
+          </div>
+        </div>
+        <p>Copyright © 2024 Guess The Sign.com All writes reserved</p>
+      </footer>
+    </section>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="Javascript/script.js"></script>
+    <script>
+      const burgerMenu = document.querySelector(".burger-menu");
+      const header = document.querySelector(".header");
+
+      burgerMenu.addEventListener("click", () => {
+        header.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

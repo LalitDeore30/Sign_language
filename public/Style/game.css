@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    height: 100vh;
+    margin: 0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 85%;
+    padding: 20px 10%;
+    background-color: #3AB0FF; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+   
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+}
+.logo img{
+    height: 40px;
+    width: 40px;
+}
+
+.navbar {
+    display: flex; 
+    align-items: center; 
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #f4eded;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px; 
+    transition: .3s;
+}
+
+.navbar a:hover {
+    padding: 0.5rem;
+    background-color: #f9f7f7;
+    color: #0E2954;
+    border-radius: 10px;
+}
+
+/* Burger menu styles */
+.burger-menu {
+    display: none;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.line {
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+
+.header.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.header.active .line:nth-child(1) {
+    transform: translateY(8px) rotate(-45deg);
+}
+
+.header.active .line:nth-child(3) {
+    transform: translateY(-8px) rotate(45deg);
+}
+
+
+
+
+/* KEYFRAMES ANIMATION */
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    margin-top: 200px;
+}
+
+#score-container {
+    font-size: 1.2rem;
+    color: #16a085;
+    margin-bottom: 10px;
+}
+
+.sign-image {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+}
+
+#userInput {
+    padding: 10px;
+    font-size: 0.9rem;
+    width: 80%;
+    max-width: 120px;
+    text-align: center;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    outline: none;
+}
+
+#question-number {
+    margin-bottom: 15px;
+}
+
+#userInput:focus {
+    border-color: #16a085;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    width: auto;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#message {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+#end-message {
+    font-size: 1.5rem;
+    color: #e74c3c;
+}
+
+.keypad {
+    margin-top: 5px;
+}
+
+.key-row {
+    display: flex;
+    justify-content: center; 
+    margin: 5px 0;
+}
+
+.key-row button {
+    width: 40px;
+    margin: 3px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.glass-heading {
+    font-size: 2rem;
+    color: #4fa2e4;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    max-width: 100%;
+}
+
+#footer {
+    background-color: #3AB0FF;
+    color: #333;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+  
+#footer p {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+#icon {
+  display: flex;
+  justify-content: center;
+}
+.ic1 {
+  margin: 6px;
+  color: #fff;
+  padding: 0 0.7rem;
+  cursor: pointer;
+}
+
+
+
+.card-box {
+    position: relative;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem; 
+    padding: 20px; 
+}
+
+.card {
+    flex: 1 1 calc(25% - 2rem); 
+    max-width: 300px; 
+    margin: 0 auto; 
+    height: 400px;
+    padding: 5px;
+    border: 5px solid black;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.learn-img {
+    position: relative;
+    height: 325px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 2px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.card-body {
+    background-color: antiquewhite;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-text{
+    font-size: 20px;
+}
+
+/* game css */
+.game-body {
+    position: relative;
+    margin-top: 100px;
+}
+
+.game-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 50px;
+    color: #333;
+}
+
+.game-score {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Adds space below buttons */
+}
+
+.actions button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    height: 50px;
+    width: 120px;
+}
+
+.actions button:hover {
+    background-color: #2980b9;
+}
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+    grid-gap: 10px; /* Small gap between cards */
+    grid-template-columns: repeat(5, 100px); /* Adjusted card size */
+    grid-template-rows: repeat(3, 100px); /* Matching row size */
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gcard {
+    background-color: #e74c3c;
+    height: 100px; /* Adjusted for better fit */
+    width: 100px;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.gcard-flipped {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.gcard .front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+}
+
+.gcard .back {
+    background-color: #2980b9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.front-image {
+    width: 80px; /* Adjusted image size */
+    height: 80px;
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    #userInput {
+        max-width: 100%;
+    }
+    .gcard {
+        background-color: #e74c3c;
+        height: 70px; /* Adjusted for better fit */
+        width: 70px;
+        border-radius: 10px;
+        background-color: white;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+    }
+    .grid-container {
+        display: grid;
+        justify-content: center;
+        grid-gap: 5px; /* Small gap between cards */
+        grid-template-columns: repeat(5, 70px); /* Adjusted card size */
+        grid-template-rows: repeat(3, 70px); /* Matching row size */
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .navbar {
+        display: none; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 100%; 
+        right: 0;
+        background-color: #3AB0FF; 
+        width: 100%; 
+        padding: 10px 0; 
+        text-align: center; 
+    }
+
+    .header.active .navbar {
+        display: flex; 
+    }
+
+    .burger-menu {
+        display: block; 
+    }
+}
